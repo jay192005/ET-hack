@@ -1,6 +1,8 @@
 # 🚀 ExpenseFlow
 **A Next-Generation Reimbursement & Expense Management Platform** *Built for the Odoo Hackathon*
 
+**Created by Jay and Team**
+
 ---
 
 ## 💡 The Problem
@@ -97,4 +99,4 @@ Open a **new** terminal window, navigate to the `frontend` directory, and spin u
 * **AI Fraud Detection:** Machine learning algorithms to flag duplicate receipts or anomalies in spending patterns.
 
 ---
-*Developed with ❤️ for the Odoo Hackathon.*
+*Developed with ❤️ for the Odoo Hackathon by Jay and Team.*

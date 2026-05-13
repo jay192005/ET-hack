@@ -10,6 +10,8 @@ ExpenseFlow Backend API
 ================================================================================
 A Flask-based REST API built for the Odoo Hackathon.
 This serves as the core backend for the Expense Management System.
+
+Created by Jay and Team
 ================================================================================
 """
 
