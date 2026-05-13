@@ -14,11 +14,9 @@ from werkzeug.security import generate_password_hash
 def create_demo_data():
     print("Creating demo data...\n")
     
-    # Check if demo company exists
     company = get_company_by_name("Demo Corporation")
     
     if not company:
-        # Create demo company
         company = create_company(
             name="Demo Corporation",
             country="United States",
@@ -34,7 +32,6 @@ def create_demo_data():
     
     company_id = company["id"]
     
-    # Create demo users
     demo_users = [
         {"email": "admin@demo.com", "name": "Admin User", "role": "ADMIN"},
         {"email": "manager@demo.com", "name": "John Manager", "role": "MANAGER"},
@@ -44,7 +41,6 @@ def create_demo_data():
     
     user_ids = []
     for user_data in demo_users:
-        # Check if user exists
         existing = execute_query(
             "SELECT id FROM users WHERE email = %s",
             (user_data["email"],),
@@ -65,14 +61,12 @@ def create_demo_data():
             user_ids.append(existing["id"])
             print(f"✓ User already exists: {user_data['email']}")
     
-    # Update company admin_id
     execute_query(
         "UPDATE companies SET admin_id = %s WHERE id = %s",
         (user_ids[0], company_id),
         commit=True
     )
     
-    # Set manager relationships
     execute_query(
         "UPDATE users SET manager_id = %s, is_manager_approver = 1 WHERE email = %s",
         (user_ids[1], "employee@demo.com"),
