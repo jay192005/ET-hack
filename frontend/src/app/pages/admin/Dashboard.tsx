@@ -82,31 +82,31 @@ export function AdminDashboard() {
       {/* Chart + Quick Actions */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Expense Trend */}
-        <div className="lg:col-span-2 bg-white rounded-xl border p-5" style={{ borderColor: "#fce7f3" }}>
+        <div className="lg:col-span-2 bg-white rounded-xl border p-5" style={{ borderColor: "#ffd4b8" }}>
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="font-semibold text-gray-900">Expense Trends</h3>
               <p className="text-xs text-gray-400 mt-0.5">Monthly expense volume</p>
             </div>
-            <TrendingUp size={18} style={{ color: "#d63384" }} />
+            <TrendingUp size={18} style={{ color: "#c8102e" }} />
           </div>
           {chartData.length > 0 ? (
             <ResponsiveContainer width="100%" height={180}>
               <AreaChart data={chartData}>
                 <defs>
                   <linearGradient id="pinkGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#d63384" stopOpacity={0.15} />
-                    <stop offset="95%" stopColor="#d63384" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#c8102e" stopOpacity={0.15} />
+                    <stop offset="95%" stopColor="#c8102e" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#fce7f3" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#ffd4b8" />
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
                 <Tooltip
                   contentStyle={{ border: "none", borderRadius: 8, boxShadow: "0 4px 20px rgba(214,51,132,0.1)", fontSize: 12 }}
                   formatter={(val: number) => [`${company?.currencySymbol}${val.toFixed(0)}`, "Amount"]}
                 />
-                <Area type="monotone" dataKey="amount" stroke="#d63384" strokeWidth={2} fill="url(#pinkGrad)" />
+                <Area type="monotone" dataKey="amount" stroke="#c8102e" strokeWidth={2} fill="url(#pinkGrad)" />
               </AreaChart>
             </ResponsiveContainer>
           ) : (
@@ -117,11 +117,11 @@ export function AdminDashboard() {
         </div>
 
         {/* Quick Actions */}
-        <div className="bg-white rounded-xl border p-5" style={{ borderColor: "#fce7f3" }}>
+        <div className="bg-white rounded-xl border p-5" style={{ borderColor: "#ffd4b8" }}>
           <h3 className="font-semibold text-gray-900 mb-4">Quick Actions</h3>
           <div className="space-y-2">
             {[
-              { label: "Manage Users", desc: "Add employees & managers", path: "/admin/users", color: "#d63384" },
+              { label: "Manage Users", desc: "Add employees & managers", path: "/admin/users", color: "#c8102e" },
               { label: "Approval Rules", desc: "Configure workflows", path: "/admin/approval-rules", color: "#7c3aed" },
               { label: "View All Expenses", desc: "Review & override", path: "/admin/expenses", color: "#059669" },
             ].map(({ label, desc, path, color }) => (
@@ -129,7 +129,7 @@ export function AdminDashboard() {
                 key={path}
                 onClick={() => navigate(path)}
                 className="w-full text-left p-3 rounded-lg border hover:shadow-sm transition-all flex items-center justify-between group"
-                style={{ borderColor: "#fce7f3" }}
+                style={{ borderColor: "#ffd4b8" }}
               >
                 <div>
                   <p className="text-sm font-medium text-gray-800">{label}</p>
@@ -141,7 +141,7 @@ export function AdminDashboard() {
           </div>
 
           {/* Status breakdown */}
-          <div className="mt-4 pt-4 border-t" style={{ borderColor: "#fce7f3" }}>
+          <div className="mt-4 pt-4 border-t" style={{ borderColor: "#ffd4b8" }}>
             <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Status Overview</p>
             {[
               { label: "Pending", count: stats.pending, color: "#d97706", bg: "#fef3c7" },
@@ -163,8 +163,8 @@ export function AdminDashboard() {
       </div>
 
       {/* Recent Expenses */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-        <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+        <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#ffd4b8" }}>
           <div>
             <h3 className="font-semibold text-gray-900">Recent Expenses</h3>
             <p className="text-xs text-gray-400">Latest submissions across all employees</p>
@@ -172,7 +172,7 @@ export function AdminDashboard() {
           <button
             onClick={() => navigate("/admin/expenses")}
             className="text-xs font-medium flex items-center gap-1 transition-colors"
-            style={{ color: "#d63384" }}
+            style={{ color: "#c8102e" }}
           >
             View all <ArrowRight size={12} />
           </button>
@@ -187,7 +187,7 @@ export function AdminDashboard() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr style={{ background: "#fdf2f8" }}>
+                <tr style={{ background: "#fef8f3" }}>
                   {["Employee", "Title", "Amount", "Category", "Date", "Status"].map((h) => (
                     <th key={h} className="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
                       {h}
@@ -200,12 +200,12 @@ export function AdminDashboard() {
                   <tr
                     key={e.id}
                     onClick={() => navigate(`/expenses/${e.id}`)}
-                    className="border-t cursor-pointer hover:bg-pink-50 transition-colors"
-                    style={{ borderColor: "#fce7f3" }}
+                    className="border-t cursor-pointer hover:bg-orange-50 transition-colors"
+                    style={{ borderColor: "#ffd4b8" }}
                   >
                     <td className="px-5 py-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ background: "#d63384" }}>
+                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ background: "#c8102e" }}>
                           {e.employeeName.charAt(0)}
                         </div>
                         <span className="text-sm text-gray-800 font-medium">{e.employeeName}</span>
@@ -225,7 +225,7 @@ export function AdminDashboard() {
                       </div>
                     </td>
                     <td className="px-5 py-3">
-                      <span className="text-xs px-2 py-1 rounded-full" style={{ background: "#fdf2f8", color: "#d63384" }}>
+                      <span className="text-xs px-2 py-1 rounded-full" style={{ background: "#fef8f3", color: "#c8102e" }}>
                         {e.category}
                       </span>
                     </td>
@@ -261,3 +261,4 @@ export function AdminDashboard() {
     </div>
   );
 }
+

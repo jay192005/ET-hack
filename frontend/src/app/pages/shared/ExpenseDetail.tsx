@@ -26,7 +26,7 @@ export function ExpenseDetailPage() {
         <div className="text-center">
           <Receipt size={40} className="mx-auto mb-3 text-gray-200" />
           <p className="text-gray-400">Expense not found</p>
-          <button onClick={() => navigate(-1)} className="mt-3 text-sm font-medium" style={{ color: "#d63384" }}>
+          <button onClick={() => navigate(-1)} className="mt-3 text-sm font-medium" style={{ color: "#c8102e" }}>
             Go back
           </button>
         </div>
@@ -73,8 +73,8 @@ export function ExpenseDetailPage() {
       </button>
 
       {/* Header Card */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-        <div className="p-5 border-b" style={{ borderColor: "#fce7f3", background: "#fdf2f8" }}>
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+        <div className="p-5 border-b" style={{ borderColor: "#ffd4b8", background: "#fef8f3" }}>
           <div className="flex items-start justify-between gap-3">
             <div>
               <h2 className="text-xl font-bold text-gray-900">{expense.title}</h2>
@@ -87,7 +87,7 @@ export function ExpenseDetailPage() {
         <div className="p-5">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-5">
             <div className="flex items-start gap-2.5">
-              <DollarSign size={16} style={{ color: "#d63384" }} className="flex-shrink-0 mt-0.5" />
+              <DollarSign size={16} style={{ color: "#c8102e" }} className="flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs text-gray-400 font-medium">Amount</p>
                 <p className="text-base font-bold text-gray-900">{sym}{expense.amountInCompanyCurrency.toFixed(2)}</p>
@@ -97,21 +97,21 @@ export function ExpenseDetailPage() {
               </div>
             </div>
             <div className="flex items-start gap-2.5">
-              <Tag size={15} style={{ color: "#d63384" }} className="flex-shrink-0 mt-0.5" />
+              <Tag size={15} style={{ color: "#c8102e" }} className="flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs text-gray-400 font-medium">Category</p>
                 <p className="text-sm font-semibold text-gray-800">{expense.category}</p>
               </div>
             </div>
             <div className="flex items-start gap-2.5">
-              <Calendar size={15} style={{ color: "#d63384" }} className="flex-shrink-0 mt-0.5" />
+              <Calendar size={15} style={{ color: "#c8102e" }} className="flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs text-gray-400 font-medium">Date</p>
                 <p className="text-sm font-semibold text-gray-800">{new Date(expense.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
               </div>
             </div>
             <div className="flex items-start gap-2.5">
-              <User size={15} style={{ color: "#d63384" }} className="flex-shrink-0 mt-0.5" />
+              <User size={15} style={{ color: "#c8102e" }} className="flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs text-gray-400 font-medium">Submitted</p>
                 <p className="text-sm font-semibold text-gray-800">{new Date(expense.createdAt).toLocaleDateString()}</p>
@@ -122,7 +122,7 @@ export function ExpenseDetailPage() {
           {expense.description && (
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <FileText size={14} style={{ color: "#d63384" }} />
+                <FileText size={14} style={{ color: "#c8102e" }} />
                 <p className="text-sm font-semibold text-gray-700">Description</p>
               </div>
               <p className="text-sm text-gray-600 pl-6 leading-relaxed">{expense.description}</p>
@@ -131,8 +131,8 @@ export function ExpenseDetailPage() {
 
           {/* Currency conversion info */}
           {expense.currency !== company?.currency && (
-            <div className="p-3 rounded-lg text-xs mb-4" style={{ background: "#fdf2f8" }}>
-              <span className="font-semibold" style={{ color: "#d63384" }}>Currency: </span>
+            <div className="p-3 rounded-lg text-xs mb-4" style={{ background: "#fef8f3" }}>
+              <span className="font-semibold" style={{ color: "#c8102e" }}>Currency: </span>
               <span className="text-gray-600">
                 {expense.currencySymbol}{expense.amount} {expense.currency} × {expense.exchangeRate.toFixed(4)} = {sym}{expense.amountInCompanyCurrency.toFixed(2)} {company?.currency}
               </span>
@@ -143,7 +143,7 @@ export function ExpenseDetailPage() {
           {expense.receiptDataUrl && (
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <Receipt size={14} style={{ color: "#d63384" }} />
+                <Receipt size={14} style={{ color: "#c8102e" }} />
                 <p className="text-sm font-semibold text-gray-700">Receipt</p>
                 {expense.ocrData && (
                   <span className="flex items-center gap-1 text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: "#d1fae5", color: "#059669" }}>
@@ -162,10 +162,10 @@ export function ExpenseDetailPage() {
                       src={expense.receiptDataUrl}
                       alt="Receipt"
                       className="max-h-32 rounded-lg border cursor-pointer object-contain hover:opacity-90 transition-opacity"
-                      style={{ borderColor: "#fce7f3" }}
+                      style={{ borderColor: "#ffd4b8" }}
                       onClick={() => setShowReceiptModal(true)}
                     />
-                    <button onClick={() => setShowReceiptModal(true)} className="mt-1 text-xs flex items-center gap-1" style={{ color: "#d63384" }}>
+                    <button onClick={() => setShowReceiptModal(true)} className="mt-1 text-xs flex items-center gap-1" style={{ color: "#c8102e" }}>
                       <Eye size={11} /> View full receipt
                     </button>
                   </>
@@ -186,8 +186,8 @@ export function ExpenseDetailPage() {
 
       {/* Approval Timeline */}
       {expense.approvals.length > 0 && (
-        <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-          <div className="p-4 border-b" style={{ borderColor: "#fce7f3", background: "#fdf2f8" }}>
+        <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+          <div className="p-4 border-b" style={{ borderColor: "#ffd4b8", background: "#fef8f3" }}>
             <h3 className="font-semibold text-gray-900 text-sm">Approval Timeline</h3>
             <p className="text-xs text-gray-400 mt-0.5">
               {expense.status === "pending"
@@ -212,7 +212,7 @@ export function ExpenseDetailPage() {
                           background:
                             approval.status === "approved" ? "#d1fae5" :
                             approval.status === "rejected" ? "#fee2e2" :
-                            isActive ? "#d63384" : "#f3f4f6",
+                            isActive ? "#c8102e" : "#f3f4f6",
                           color:
                             approval.status === "approved" ? "#059669" :
                             approval.status === "rejected" ? "#dc2626" :
@@ -225,7 +225,7 @@ export function ExpenseDetailPage() {
                          isActive ? <Clock size={14} /> : idx + 1}
                       </div>
                       {idx < expense.approvals.length - 1 && (
-                        <div className="w-0.5 h-8 mt-1" style={{ background: isDone ? "#fce7f3" : "#e5e7eb" }} />
+                        <div className="w-0.5 h-8 mt-1" style={{ background: isDone ? "#ffd4b8" : "#e5e7eb" }} />
                       )}
                     </div>
 
@@ -240,12 +240,12 @@ export function ExpenseDetailPage() {
                               approval.status === "approved" ? "#d1fae5" :
                               approval.status === "rejected" ? "#fee2e2" :
                               approval.status === "skipped" ? "#e0e7ff" :
-                              isActive ? "#fce4ec" : "#f3f4f6",
+                              isActive ? "#fef3ed" : "#f3f4f6",
                             color:
                               approval.status === "approved" ? "#059669" :
                               approval.status === "rejected" ? "#dc2626" :
                               approval.status === "skipped" ? "#6366f1" :
-                              isActive ? "#d63384" : "#6b7280",
+                              isActive ? "#c8102e" : "#6b7280",
                           }}
                         >
                           {isActive && approval.status === "pending" ? "Waiting" :
@@ -280,9 +280,9 @@ export function ExpenseDetailPage() {
 
       {/* OCR Data */}
       {expense.ocrData && (
-        <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-          <div className="p-4 border-b flex items-center gap-2" style={{ borderColor: "#fce7f3", background: "#fdf2f8" }}>
-            <Scan size={14} style={{ color: "#d63384" }} />
+        <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+          <div className="p-4 border-b flex items-center gap-2" style={{ borderColor: "#ffd4b8", background: "#fef8f3" }}>
+            <Scan size={14} style={{ color: "#c8102e" }} />
             <h3 className="font-semibold text-gray-900 text-sm">OCR Extracted Data</h3>
           </div>
           <div className="p-4">
@@ -320,7 +320,7 @@ export function ExpenseDetailPage() {
 
       {/* Action Buttons */}
       {(isCurrentApprover || (isAdmin && expense.status === "pending")) && (
-        <div className="bg-white rounded-xl border p-5" style={{ borderColor: "#fce7f3" }}>
+        <div className="bg-white rounded-xl border p-5" style={{ borderColor: "#ffd4b8" }}>
           <h3 className="font-semibold text-gray-900 mb-3">
             {isCurrentApprover ? "Your Action Required" : "Admin Override"}
           </h3>
@@ -350,7 +350,7 @@ export function ExpenseDetailPage() {
       {actionModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div className="bg-white rounded-2xl w-full max-w-md shadow-xl">
-            <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#fce7f3" }}>
+            <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#ffd4b8" }}>
               <h3 className="font-bold text-gray-900">
                 {actionModal === "approve" ? "Approve Expense" : "Reject Expense"}
               </h3>
@@ -377,7 +377,7 @@ export function ExpenseDetailPage() {
                 rows={3}
                 className="w-full px-4 py-3 border rounded-lg text-sm outline-none resize-none"
                 style={{ borderColor: "#e5e7eb" }}
-                onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                 onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
               />
 
@@ -414,3 +414,4 @@ export function ExpenseDetailPage() {
     </div>
   );
 }
+

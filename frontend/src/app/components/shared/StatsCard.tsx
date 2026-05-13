@@ -10,9 +10,9 @@ interface StatsCardProps {
   trend?: { value: string; positive: boolean };
 }
 
-export function StatsCard({ title, value, subtitle, icon: Icon, iconBg = "#fce4ec", iconColor = "#d63384", trend }: StatsCardProps) {
+export function StatsCard({ title, value, subtitle, icon: Icon, iconBg = "#fef3ed", iconColor = "#c8102e", trend }: StatsCardProps) {
   return (
-    <div className="bg-white rounded-xl border p-5 flex items-start gap-4" style={{ borderColor: "#fce7f3" }}>
+    <div className="bg-white rounded-xl border p-5 flex items-start gap-4" style={{ borderColor: "#ffd4b8" }}>
       <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: iconBg }}>
         <Icon size={22} style={{ color: iconColor }} />
       </div>
@@ -29,3 +29,4 @@ export function StatsCard({ title, value, subtitle, icon: Icon, iconBg = "#fce4e
     </div>
   );
 }
+

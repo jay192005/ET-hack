@@ -37,14 +37,14 @@ export function ManagerDashboard() {
       </div>
 
       {/* Pending Approvals */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-        <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+        <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#ffd4b8" }}>
           <div>
             <h3 className="font-semibold text-gray-900">Pending Approvals</h3>
             <p className="text-xs text-gray-400">Expenses waiting for your action</p>
           </div>
           {pending.length > 0 && (
-            <button onClick={() => navigate("/manager/approvals")} className="text-xs font-medium flex items-center gap-1" style={{ color: "#d63384" }}>
+            <button onClick={() => navigate("/manager/approvals")} className="text-xs font-medium flex items-center gap-1" style={{ color: "#c8102e" }}>
               View all <ArrowRight size={12} />
             </button>
           )}
@@ -56,11 +56,11 @@ export function ManagerDashboard() {
             <p className="text-gray-400 text-sm">No pending approvals</p>
           </div>
         ) : (
-          <div className="divide-y" style={{ borderColor: "#fce7f3" }}>
+          <div className="divide-y" style={{ borderColor: "#ffd4b8" }}>
             {pending.slice(0, 4).map((expense) => (
               <div key={expense.id} onClick={() => navigate(`/expenses/${expense.id}`)}
-                className="flex items-center gap-4 px-5 py-4 hover:bg-pink-50 transition-colors cursor-pointer">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0" style={{ background: "#d63384" }}>
+                className="flex items-center gap-4 px-5 py-4 hover:bg-orange-50 transition-colors cursor-pointer">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0" style={{ background: "#c8102e" }}>
                   {expense.employeeName.charAt(0)}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -79,13 +79,13 @@ export function ManagerDashboard() {
       </div>
 
       {/* Recent Team Expenses */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-        <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+        <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#ffd4b8" }}>
           <div>
             <h3 className="font-semibold text-gray-900">Team Expenses</h3>
             <p className="text-xs text-gray-400">Recent submissions from your team</p>
           </div>
-          <button onClick={() => navigate("/manager/expenses")} className="text-xs font-medium flex items-center gap-1" style={{ color: "#d63384" }}>
+          <button onClick={() => navigate("/manager/expenses")} className="text-xs font-medium flex items-center gap-1" style={{ color: "#c8102e" }}>
             View all <ArrowRight size={12} />
           </button>
         </div>
@@ -98,7 +98,7 @@ export function ManagerDashboard() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr style={{ background: "#fdf2f8" }}>
+                <tr style={{ background: "#fef8f3" }}>
                   {["Employee", "Expense", "Amount", "Status"].map((h) => (
                     <th key={h} className="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">{h}</th>
                   ))}
@@ -107,7 +107,7 @@ export function ManagerDashboard() {
               <tbody>
                 {teamExpenses.slice(0, 5).map((e) => (
                   <tr key={e.id} onClick={() => navigate(`/expenses/${e.id}`)}
-                    className="border-t cursor-pointer hover:bg-pink-50 transition-colors" style={{ borderColor: "#fce7f3" }}>
+                    className="border-t cursor-pointer hover:bg-orange-50 transition-colors" style={{ borderColor: "#ffd4b8" }}>
                     <td className="px-5 py-3 text-sm font-medium text-gray-800">{e.employeeName}</td>
                     <td className="px-5 py-3">
                       <p className="text-sm text-gray-800">{e.title}</p>
@@ -134,3 +134,4 @@ export function ManagerDashboard() {
     </div>
   );
 }
+

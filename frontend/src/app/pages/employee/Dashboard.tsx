@@ -34,7 +34,7 @@ export function EmployeeDashboard() {
         <button
           onClick={() => navigate("/employee/submit")}
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-white text-sm font-semibold"
-          style={{ background: "#d63384" }}
+          style={{ background: "#c8102e" }}
         >
           <PlusCircle size={15} /> New Expense
         </button>
@@ -60,11 +60,11 @@ export function EmployeeDashboard() {
         <div
           onClick={() => navigate("/employee/submit")}
           className="flex items-center justify-between p-6 rounded-2xl cursor-pointer group"
-          style={{ background: "linear-gradient(135deg, #d63384 0%, #9c1857 100%)" }}
+          style={{ background: "linear-gradient(135deg, #c8102e 0%, #9c1857 100%)" }}
         >
           <div>
             <h3 className="text-white font-bold text-lg mb-1">Submit your first expense</h3>
-            <p className="text-pink-200 text-sm">Upload a receipt or fill in details manually</p>
+            <p className="text-orange-200 text-sm">Upload a receipt or fill in details manually</p>
           </div>
           <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
             <ArrowRight size={20} className="text-white" />
@@ -73,14 +73,14 @@ export function EmployeeDashboard() {
       )}
 
       {/* Recent Expenses */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-        <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+        <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#ffd4b8" }}>
           <div>
             <h3 className="font-semibold text-gray-900">Recent Expenses</h3>
             <p className="text-xs text-gray-400">Your latest submissions</p>
           </div>
           {myExpenses.length > 0 && (
-            <button onClick={() => navigate("/employee/expenses")} className="text-xs font-medium flex items-center gap-1" style={{ color: "#d63384" }}>
+            <button onClick={() => navigate("/employee/expenses")} className="text-xs font-medium flex items-center gap-1" style={{ color: "#c8102e" }}>
               View all <ArrowRight size={12} />
             </button>
           )}
@@ -90,17 +90,17 @@ export function EmployeeDashboard() {
           <div className="p-12 text-center">
             <Receipt size={40} className="mx-auto mb-3 text-gray-200" />
             <p className="text-gray-400 text-sm">No expenses submitted yet</p>
-            <button onClick={() => navigate("/employee/submit")} className="mt-3 text-sm font-medium" style={{ color: "#d63384" }}>
+            <button onClick={() => navigate("/employee/submit")} className="mt-3 text-sm font-medium" style={{ color: "#c8102e" }}>
               Submit your first expense →
             </button>
           </div>
         ) : (
-          <div className="divide-y" style={{ borderColor: "#fce7f3" }}>
+          <div className="divide-y" style={{ borderColor: "#ffd4b8" }}>
             {recent.map((expense) => (
               <div key={expense.id} onClick={() => navigate(`/expenses/${expense.id}`)}
-                className="flex items-center gap-4 px-5 py-4 hover:bg-pink-50 transition-colors cursor-pointer">
-                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "#fce4ec" }}>
-                  <Receipt size={16} style={{ color: "#d63384" }} />
+                className="flex items-center gap-4 px-5 py-4 hover:bg-orange-50 transition-colors cursor-pointer">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "#fef3ed" }}>
+                  <Receipt size={16} style={{ color: "#c8102e" }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-gray-900">{expense.title}</p>
@@ -143,3 +143,4 @@ export function EmployeeDashboard() {
     </div>
   );
 }
+

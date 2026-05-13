@@ -53,9 +53,9 @@ export function Sidebar() {
     employeeNav;
 
   const roleInfo = {
-    admin: { label: "Administrator", icon: Shield, color: "#f472b6" },
+    admin: { label: "Administrator", icon: Shield, color: "#ff6b6b" },
     manager: { label: "Manager", icon: UserCheck, color: "#fb7185" },
-    employee: { label: "Employee", icon: FileText, color: "#f9a8d4" },
+    employee: { label: "Employee", icon: FileText, color: "#ffa07a" },
   }[currentUser.role];
 
   const handleLogout = () => {
@@ -69,7 +69,7 @@ export function Sidebar() {
       <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: "#3d1030" }}>
         {!collapsed && (
           <div className="flex items-center gap-2.5 overflow-hidden">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "#d63384" }}>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "#c8102e" }}>
               <TrendingUp size={16} className="text-white" />
             </div>
             <div className="min-w-0">
@@ -79,7 +79,7 @@ export function Sidebar() {
           </div>
         )}
         {collapsed && (
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center mx-auto" style={{ background: "#d63384" }}>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center mx-auto" style={{ background: "#c8102e" }}>
             <TrendingUp size={16} className="text-white" />
           </div>
         )}
@@ -117,11 +117,11 @@ export function Sidebar() {
               }`
             }
             style={({ isActive }) => ({
-              background: isActive ? "#d63384" : "transparent",
+              background: isActive ? "#c8102e" : "transparent",
             })}
             onMouseEnter={(e) => {
               const el = e.currentTarget;
-              if (!el.classList.contains("text-white") || el.style.background !== "#d63384") {
+              if (!el.classList.contains("text-white") || el.style.background !== "#c8102e") {
                 el.style.background = "#2d0a20";
               }
             }}
@@ -140,7 +140,7 @@ export function Sidebar() {
                     {badge != null && badge > 0 && (
                       <span
                         className="flex items-center justify-center min-w-5 h-5 rounded-full text-white text-xs font-bold px-1"
-                        style={{ background: isActive ? "rgba(255,255,255,0.3)" : "#d63384" }}
+                        style={{ background: isActive ? "rgba(255,255,255,0.3)" : "#c8102e" }}
                       >
                         {badge}
                       </span>
@@ -150,7 +150,7 @@ export function Sidebar() {
                 {collapsed && badge != null && badge > 0 && (
                   <span
                     className="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-white text-xs"
-                    style={{ background: "#d63384", fontSize: "10px" }}
+                    style={{ background: "#c8102e", fontSize: "10px" }}
                   >
                     {badge}
                   </span>
@@ -166,7 +166,7 @@ export function Sidebar() {
         <div className={`flex items-center gap-3 px-2 py-2 rounded-lg ${collapsed ? "justify-center" : ""}`}>
           <div
             className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm"
-            style={{ background: "#d63384", color: "white" }}
+            style={{ background: "#c8102e", color: "white" }}
           >
             {currentUser.name.charAt(0).toUpperCase()}
           </div>
@@ -205,7 +205,7 @@ export function Sidebar() {
       <button
         onClick={() => setMobileOpen(true)}
         className="lg:hidden fixed top-4 left-4 z-40 w-9 h-9 rounded-lg flex items-center justify-center text-white"
-        style={{ background: "#d63384" }}
+        style={{ background: "#c8102e" }}
       >
         <Menu size={18} />
       </button>
@@ -244,3 +244,4 @@ export function Sidebar() {
     </>
   );
 }
+

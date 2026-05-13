@@ -179,3 +179,4 @@ export const ALL_CURRENCIES = [
   { code: "PLN", symbol: "zł", name: "Polish Zloty" },
   { code: "ILS", symbol: "₪", name: "Israeli Shekel" },
 ];
+

@@ -43,7 +43,7 @@ export function PendingApprovalsPage() {
       </div>
 
       {pending.length === 0 ? (
-        <div className="bg-white rounded-xl border p-16 text-center" style={{ borderColor: "#fce7f3" }}>
+        <div className="bg-white rounded-xl border p-16 text-center" style={{ borderColor: "#ffd4b8" }}>
           <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: "#d1fae5" }}>
             <CheckCircle size={28} className="text-green-500" />
           </div>
@@ -55,11 +55,11 @@ export function PendingApprovalsPage() {
           {pending.map((expense) => {
             const step = expense.approvals[expense.currentApproverStep];
             return (
-              <div key={expense.id} className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
+              <div key={expense.id} className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-start gap-3 flex-1 min-w-0">
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0" style={{ background: "#d63384" }}>
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0" style={{ background: "#c8102e" }}>
                         {expense.employeeName.charAt(0)}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -83,7 +83,7 @@ export function PendingApprovalsPage() {
 
                   {/* Approval Steps */}
                   {expense.approvals.length > 0 && (
-                    <div className="mt-4 pt-4 border-t" style={{ borderColor: "#fce7f3" }}>
+                    <div className="mt-4 pt-4 border-t" style={{ borderColor: "#ffd4b8" }}>
                       <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Approval Progress</p>
                       <div className="flex items-center gap-2 flex-wrap">
                         {expense.approvals.map((a, idx) => (
@@ -95,7 +95,7 @@ export function PendingApprovalsPage() {
                                 background:
                                   a.status === "approved" ? "#d1fae5" :
                                   a.status === "rejected" ? "#fee2e2" :
-                                  idx === expense.currentApproverStep ? "#d63384" : "#f3f4f6",
+                                  idx === expense.currentApproverStep ? "#c8102e" : "#f3f4f6",
                                 color:
                                   a.status === "approved" ? "#059669" :
                                   a.status === "rejected" ? "#dc2626" :
@@ -122,14 +122,14 @@ export function PendingApprovalsPage() {
                           <FileText size={14} /> Open PDF
                         </button>
                       ) : (
-                        <img src={expense.receiptDataUrl} alt="Receipt" className="h-16 w-auto rounded-lg border object-cover cursor-pointer hover:opacity-90 transition-opacity" style={{ borderColor: "#fce7f3" }}
+                        <img src={expense.receiptDataUrl} alt="Receipt" className="h-16 w-auto rounded-lg border object-cover cursor-pointer hover:opacity-90 transition-opacity" style={{ borderColor: "#ffd4b8" }}
                           onClick={() => window.open(expense.receiptDataUrl)} />
                       )}
                     </div>
                   )}
 
                   {/* Actions */}
-                  <div className="mt-4 pt-4 border-t flex items-center gap-2 flex-wrap" style={{ borderColor: "#fce7f3" }}>
+                  <div className="mt-4 pt-4 border-t flex items-center gap-2 flex-wrap" style={{ borderColor: "#ffd4b8" }}>
                     <button onClick={() => navigate(`/expenses/${expense.id}`)}
                       className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-200 text-sm text-gray-600 hover:bg-gray-50">
                       <Eye size={14} /> View Details
@@ -158,7 +158,7 @@ export function PendingApprovalsPage() {
       {actionModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div className="bg-white rounded-2xl w-full max-w-md shadow-xl">
-            <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#fce7f3" }}>
+            <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#ffd4b8" }}>
               <h3 className="font-bold text-gray-900">
                 {actionModal.action === "approve" ? "Approve Expense" : "Reject Expense"}
               </h3>
@@ -187,7 +187,7 @@ export function PendingApprovalsPage() {
                   rows={3}
                   className="w-full px-4 py-3 border rounded-lg text-sm outline-none resize-none"
                   style={{ borderColor: "#e5e7eb" }}
-                  onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                  onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                   onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
                 />
               </div>
@@ -210,3 +210,4 @@ export function PendingApprovalsPage() {
     </div>
   );
 }
+

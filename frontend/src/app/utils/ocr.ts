@@ -125,3 +125,4 @@ function parseReceiptText(text: string): OCRData {
     description,
   };
 }
+

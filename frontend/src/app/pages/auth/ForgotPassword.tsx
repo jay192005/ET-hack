@@ -23,13 +23,13 @@ export function ForgotPassword() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6" style={{ background: "linear-gradient(135deg, #fdf2f8 0%, #fce4ec 50%, #f8bbda 100%)" }}>
+    <div className="min-h-screen flex items-center justify-center p-6" style={{ background: "linear-gradient(135deg, #fef8f3 0%, #fef3ed 50%, #f8bbda 100%)" }}>
       <div className="w-full max-w-md">
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Logo */}
           <div className="flex items-center gap-2 mb-8">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#d63384" }}>
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#c8102e" }}>
               <TrendingUp size={18} className="text-white" />
             </div>
             <span className="font-bold text-gray-800 text-lg">ExpenseFlow</span>
@@ -38,8 +38,8 @@ export function ForgotPassword() {
           {!submitted ? (
             <>
               <div className="mb-6">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style={{ background: "#fce4ec" }}>
-                  <KeyRound size={26} style={{ color: "#d63384" }} />
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style={{ background: "#fef3ed" }}>
+                  <KeyRound size={26} style={{ color: "#c8102e" }} />
                 </div>
                 <h1 className="text-2xl font-bold text-gray-900 mb-1">Reset password</h1>
                 <p className="text-gray-500 text-sm">
@@ -59,7 +59,7 @@ export function ForgotPassword() {
                       placeholder="you@company.com"
                       className="w-full pl-9 pr-4 py-3 border rounded-lg text-sm outline-none transition-all"
                       style={{ borderColor: error ? "#dc2626" : "#e5e7eb" }}
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                       onBlur={(e) => (e.target.style.borderColor = error ? "#dc2626" : "#e5e7eb")}
                     />
                   </div>
@@ -70,7 +70,7 @@ export function ForgotPassword() {
                   type="submit"
                   disabled={isLoading}
                   className="w-full py-3 rounded-lg text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all"
-                  style={{ background: isLoading ? "#f9a8d4" : "#d63384" }}
+                  style={{ background: isLoading ? "#ffa07a" : "#c8102e" }}
                 >
                   {isLoading ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -82,15 +82,15 @@ export function ForgotPassword() {
             </>
           ) : (
             <div className="text-center py-4">
-              <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: "#fce4ec" }}>
-                <CheckCircle size={32} style={{ color: "#d63384" }} />
+              <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: "#fef3ed" }}>
+                <CheckCircle size={32} style={{ color: "#c8102e" }} />
               </div>
               <h2 className="text-xl font-bold text-gray-900 mb-2">Check your email</h2>
               <p className="text-gray-500 text-sm mb-2">
                 We've sent a password reset link to
               </p>
               <p className="font-semibold text-gray-800 mb-6">{email}</p>
-              <div className="p-4 rounded-lg text-left text-sm" style={{ background: "#fdf2f8" }}>
+              <div className="p-4 rounded-lg text-left text-sm" style={{ background: "#fef8f3" }}>
                 <p className="font-semibold text-gray-700 mb-1">Demo Note:</p>
                 <p className="text-gray-500 text-xs">
                   In this demo, your current password remains unchanged. In production, a reset email would be sent.
@@ -122,3 +122,4 @@ export function ForgotPassword() {
     </div>
   );
 }
+

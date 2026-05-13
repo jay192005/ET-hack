@@ -49,7 +49,7 @@ export function MyExpensesPage() {
           <p className="text-sm text-gray-500">{myExpenses.length} total expenses</p>
         </div>
         <button onClick={() => navigate("/employee/submit")}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-white text-sm font-semibold" style={{ background: "#d63384" }}>
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-white text-sm font-semibold" style={{ background: "#c8102e" }}>
           <PlusCircle size={15} /> New Expense
         </button>
       </div>
@@ -57,12 +57,12 @@ export function MyExpensesPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: "Total", value: stats.total, icon: Receipt, color: "#d63384", bg: "#fce4ec" },
+          { label: "Total", value: stats.total, icon: Receipt, color: "#c8102e", bg: "#fef3ed" },
           { label: "Pending", value: stats.pending, icon: Clock, color: "#d97706", bg: "#fef3c7" },
           { label: "Approved", value: stats.approved, icon: CheckCircle, color: "#059669", bg: "#d1fae5" },
           { label: "Rejected", value: stats.rejected, icon: XCircle, color: "#dc2626", bg: "#fee2e2" },
         ].map(({ label, value, icon: Icon, color, bg }) => (
-          <div key={label} className="bg-white rounded-xl border p-4 flex items-center gap-3" style={{ borderColor: "#fce7f3" }}>
+          <div key={label} className="bg-white rounded-xl border p-4 flex items-center gap-3" style={{ borderColor: "#ffd4b8" }}>
             <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: bg }}>
               <Icon size={17} style={{ color }} />
             </div>
@@ -76,7 +76,7 @@ export function MyExpensesPage() {
 
       {/* Total reimbursed bar */}
       {stats.totalAmount > 0 && (
-        <div className="flex items-center gap-3 p-4 rounded-xl" style={{ background: "linear-gradient(135deg, #d63384 0%, #9c1857 100%)" }}>
+        <div className="flex items-center gap-3 p-4 rounded-xl" style={{ background: "linear-gradient(135deg, #c8102e 0%, #9c1857 100%)" }}>
           <div>
             <p className="text-white/70 text-xs font-medium">Total Reimbursed</p>
             <p className="text-white font-bold text-xl">{sym}{stats.totalAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })}</p>
@@ -85,17 +85,17 @@ export function MyExpensesPage() {
       )}
 
       {/* Filters */}
-      <div className="bg-white rounded-xl border p-4 flex flex-col sm:flex-row gap-3" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border p-4 flex flex-col sm:flex-row gap-3" style={{ borderColor: "#ffd4b8" }}>
         <div className="relative flex-1">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder="Search your expenses..."
             className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-            onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
+            onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
         </div>
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
           className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-          onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+          onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
           <option value="all">All Statuses</option>
           <option value="pending">Pending</option>
           <option value="approved">Approved</option>
@@ -103,7 +103,7 @@ export function MyExpensesPage() {
         </select>
         <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}
           className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-          onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+          onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
           <option value="all">All Categories</option>
           {EXPENSE_CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
@@ -111,13 +111,13 @@ export function MyExpensesPage() {
 
       {/* Expenses List */}
       {filtered.length === 0 ? (
-        <div className="bg-white rounded-xl border p-12 text-center" style={{ borderColor: "#fce7f3" }}>
+        <div className="bg-white rounded-xl border p-12 text-center" style={{ borderColor: "#ffd4b8" }}>
           <Receipt size={40} className="mx-auto mb-3 text-gray-200" />
           <p className="text-gray-400 text-sm mb-3">
             {myExpenses.length === 0 ? "You haven't submitted any expenses yet" : "No expenses match your filters"}
           </p>
           {myExpenses.length === 0 && (
-            <button onClick={() => navigate("/employee/submit")} className="px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "#d63384" }}>
+            <button onClick={() => navigate("/employee/submit")} className="px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "#c8102e" }}>
               Submit First Expense
             </button>
           )}
@@ -126,9 +126,9 @@ export function MyExpensesPage() {
         <div className="space-y-2">
           {filtered.map((expense) => (
             <div key={expense.id} onClick={() => navigate(`/expenses/${expense.id}`)}
-              className="bg-white rounded-xl border p-4 cursor-pointer hover:shadow-sm transition-all flex items-center gap-4" style={{ borderColor: "#fce7f3" }}>
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "#fce4ec" }}>
-                <Receipt size={18} style={{ color: "#d63384" }} />
+              className="bg-white rounded-xl border p-4 cursor-pointer hover:shadow-sm transition-all flex items-center gap-4" style={{ borderColor: "#ffd4b8" }}>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "#fef3ed" }}>
+                <Receipt size={18} style={{ color: "#c8102e" }} />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -160,7 +160,7 @@ export function MyExpensesPage() {
                   <p className="text-xs text-gray-400">{expense.currencySymbol}{expense.amount} {expense.currency}</p>
                 )}
                 {expense.receiptDataUrl && (
-                  <p className="text-xs mt-0.5" style={{ color: "#d63384" }}>📎 receipt</p>
+                  <p className="text-xs mt-0.5" style={{ color: "#c8102e" }}>📎 receipt</p>
                 )}
               </div>
             </div>
@@ -170,3 +170,4 @@ export function MyExpensesPage() {
     </div>
   );
 }
+

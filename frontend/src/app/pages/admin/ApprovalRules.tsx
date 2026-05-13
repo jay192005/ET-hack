@@ -187,14 +187,14 @@ export function ApprovalRulesPage() {
           <h2 className="text-lg font-bold text-gray-900">Approval Rules</h2>
           <p className="text-sm text-gray-500">Configure multi-level expense approval workflows</p>
         </div>
-        <button onClick={openCreate} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-white text-sm font-semibold" style={{ background: "#d63384" }}>
+        <button onClick={openCreate} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-white text-sm font-semibold" style={{ background: "#c8102e" }}>
           <Plus size={15} /> New Rule
         </button>
       </div>
 
       {/* Info Banner */}
-      <div className="flex items-start gap-3 p-4 rounded-xl border" style={{ background: "#fdf2f8", borderColor: "#f9a8d4" }}>
-        <Info size={16} style={{ color: "#d63384" }} className="flex-shrink-0 mt-0.5" />
+      <div className="flex items-start gap-3 p-4 rounded-xl border" style={{ background: "#fef8f3", borderColor: "#ffa07a" }}>
+        <Info size={16} style={{ color: "#c8102e" }} className="flex-shrink-0 mt-0.5" />
         <div className="text-sm text-gray-600">
           <strong className="text-gray-800">How rules work:</strong> Rules are matched by amount and category. 
           The most specific matching rule applies. If no rule matches, expenses are auto-approved.
@@ -204,18 +204,18 @@ export function ApprovalRulesPage() {
 
       {/* Rules List */}
       {approvalRules.length === 0 ? (
-        <div className="bg-white rounded-xl border p-12 text-center" style={{ borderColor: "#fce7f3" }}>
+        <div className="bg-white rounded-xl border p-12 text-center" style={{ borderColor: "#ffd4b8" }}>
           <Settings size={40} className="mx-auto mb-3 text-gray-200" />
           <p className="text-gray-500 font-medium mb-1">No approval rules yet</p>
           <p className="text-gray-400 text-sm mb-4">Create rules to define how expenses are approved</p>
-          <button onClick={openCreate} className="px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "#d63384" }}>
+          <button onClick={openCreate} className="px-4 py-2 rounded-lg text-white text-sm font-semibold" style={{ background: "#c8102e" }}>
             Create First Rule
           </button>
         </div>
       ) : (
         <div className="space-y-3">
           {approvalRules.map((rule) => (
-            <div key={rule.id} className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
+            <div key={rule.id} className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
               <div className="p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
@@ -235,7 +235,7 @@ export function ApprovalRulesPage() {
                     {/* Filters */}
                     <div className="flex flex-wrap gap-2 mt-2">
                       {rule.isManagerApproverFirst && (
-                        <span className="text-xs px-2 py-0.5 rounded border" style={{ borderColor: "#f9a8d4", color: "#d63384", background: "#fdf2f8" }}>
+                        <span className="text-xs px-2 py-0.5 rounded border" style={{ borderColor: "#ffa07a", color: "#c8102e", background: "#fef8f3" }}>
                           Manager First
                         </span>
                       )}
@@ -257,9 +257,9 @@ export function ApprovalRulesPage() {
 
                   <div className="flex items-center gap-1 flex-shrink-0">
                     <button onClick={() => handleToggleActive(rule)} className="p-1.5 rounded text-gray-400 hover:text-gray-600">
-                      {rule.isActive ? <ToggleRight size={18} style={{ color: "#d63384" }} /> : <ToggleLeft size={18} />}
+                      {rule.isActive ? <ToggleRight size={18} style={{ color: "#c8102e" }} /> : <ToggleLeft size={18} />}
                     </button>
-                    <button onClick={() => openEdit(rule)} className="p-1.5 rounded hover:bg-pink-50 text-gray-400 hover:text-pink-600 transition-colors">
+                    <button onClick={() => openEdit(rule)} className="p-1.5 rounded hover:bg-orange-50 text-gray-400 hover:text-red-600 transition-colors">
                       <Edit2 size={14} />
                     </button>
                     <button onClick={() => setDeleteConfirm(rule.id)} className="p-1.5 rounded hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors">
@@ -275,8 +275,8 @@ export function ApprovalRulesPage() {
                     <div className="flex items-center gap-2 flex-wrap">
                       {rule.isManagerApproverFirst && (
                         <>
-                          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium" style={{ background: "#fdf2f8", color: "#d63384", border: "1px solid #f9a8d4" }}>
-                            <span className="w-4 h-4 rounded-full bg-pink-200 flex items-center justify-center text-xs font-bold" style={{ color: "#d63384" }}>M</span>
+                          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium" style={{ background: "#fef8f3", color: "#c8102e", border: "1px solid #ffa07a" }}>
+                            <span className="w-4 h-4 rounded-full bg-orange-200 flex items-center justify-center text-xs font-bold" style={{ color: "#c8102e" }}>M</span>
                             Manager (auto)
                           </div>
                           <span className="text-gray-300">→</span>
@@ -285,7 +285,7 @@ export function ApprovalRulesPage() {
                       {rule.approvers.map((a, idx) => (
                         <div key={a.userId} className="flex items-center gap-1.5">
                           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-50 text-gray-700 border border-gray-200">
-                            <span className="w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ background: "#d63384" }}>
+                            <span className="w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ background: "#c8102e" }}>
                               {idx + (rule.isManagerApproverFirst ? 2 : 1)}
                             </span>
                             {a.userName}
@@ -342,7 +342,7 @@ export function ApprovalRulesPage() {
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div className="bg-white rounded-2xl w-full max-w-xl shadow-xl flex flex-col max-h-[90vh]">
-            <div className="flex items-center justify-between p-5 border-b flex-shrink-0" style={{ borderColor: "#fce7f3" }}>
+            <div className="flex items-center justify-between p-5 border-b flex-shrink-0" style={{ borderColor: "#ffd4b8" }}>
               <h3 className="font-bold text-gray-900">{editRule ? "Edit Rule" : "New Approval Rule"}</h3>
               <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600"><X size={18} /></button>
             </div>
@@ -356,19 +356,19 @@ export function ApprovalRulesPage() {
                     <input type="text" value={form.name} onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                       placeholder="e.g., Standard Approval, High-Value Review"
                       className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5">Description</label>
                     <input type="text" value={form.description} onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
                       placeholder="Brief description of this rule..."
                       className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
                   </div>
                 </div>
 
                 {/* Manager First Toggle */}
-                <div className="flex items-center justify-between p-4 rounded-lg" style={{ background: "#fdf2f8" }}>
+                <div className="flex items-center justify-between p-4 rounded-lg" style={{ background: "#fef8f3" }}>
                   <div>
                     <p className="text-sm font-semibold text-gray-800">Is Manager Approver First</p>
                     <p className="text-xs text-gray-500 mt-0.5">Employee's assigned manager approves before the sequence</p>
@@ -376,7 +376,7 @@ export function ApprovalRulesPage() {
                   <button type="button" onClick={() => setForm((f) => ({ ...f, isManagerApproverFirst: !f.isManagerApproverFirst }))}
                     className="flex items-center gap-1">
                     {form.isManagerApproverFirst
-                      ? <ToggleRight size={28} style={{ color: "#d63384" }} />
+                      ? <ToggleRight size={28} style={{ color: "#c8102e" }} />
                       : <ToggleLeft size={28} className="text-gray-300" />}
                   </button>
                 </div>
@@ -388,7 +388,7 @@ export function ApprovalRulesPage() {
                     <div className="space-y-1.5 mb-3">
                       {form.approvers.map((a, idx) => (
                         <div key={a.userId} className="flex items-center gap-2 p-2.5 rounded-lg border bg-gray-50" style={{ borderColor: "#e5e7eb" }}>
-                          <span className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ background: "#d63384" }}>
+                          <span className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ background: "#c8102e" }}>
                             {idx + 1}
                           </span>
                           <div className="flex-1 min-w-0">
@@ -414,12 +414,12 @@ export function ApprovalRulesPage() {
                     <input type="text" value={approverSearch} onChange={(e) => setApproverSearch(e.target.value)}
                       placeholder="Search and add approvers..."
                       className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => setTimeout(() => (e.target.style.borderColor = "#e5e7eb"), 150)} />
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => setTimeout(() => (e.target.style.borderColor = "#e5e7eb"), 150)} />
                     {approverSearch && filteredApprovers.length > 0 && (
                       <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-36 overflow-y-auto">
                         {filteredApprovers.map((u) => (
                           <button key={u.id} type="button" onClick={() => addApprover(u.id)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-pink-50 flex items-center justify-between text-sm">
+                            className="w-full text-left px-4 py-2.5 hover:bg-orange-50 flex items-center justify-between text-sm">
                             <span className="font-medium text-gray-800">{u.name}</span>
                             <span className="text-xs text-gray-400 capitalize">{u.role}</span>
                           </button>
@@ -440,9 +440,9 @@ export function ApprovalRulesPage() {
                       <button key={t} type="button" onClick={() => setForm((f) => ({ ...f, conditionalType: t }))}
                         className="px-3 py-2 rounded-lg border text-xs font-medium transition-all text-left"
                         style={{
-                          background: form.conditionalType === t ? "#d63384" : "#fdf2f8",
+                          background: form.conditionalType === t ? "#c8102e" : "#fef8f3",
                           color: form.conditionalType === t ? "white" : "#9c4070",
-                          borderColor: form.conditionalType === t ? "#d63384" : "#f9a8d4",
+                          borderColor: form.conditionalType === t ? "#c8102e" : "#ffa07a",
                         }}>
                         {conditionalLabels[t]}
                       </button>
@@ -455,7 +455,7 @@ export function ApprovalRulesPage() {
                       <input type="number" min="1" max="100" value={form.percentage}
                         onChange={(e) => setForm((f) => ({ ...f, percentage: e.target.value }))}
                         className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm outline-none"
-                        onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
+                        onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
                       <p className="text-xs text-gray-400 mt-1">If {form.percentage}% of approvers approve, expense is auto-approved</p>
                     </div>
                   )}
@@ -465,7 +465,7 @@ export function ApprovalRulesPage() {
                       <label className="block text-xs font-semibold text-gray-600 mb-1.5">Specific Approver</label>
                       <select value={form.specificApproverId} onChange={(e) => setForm((f) => ({ ...f, specificApproverId: e.target.value }))}
                         className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm outline-none"
-                        onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+                        onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
                         <option value="">— Select Approver —</option>
                         {form.approvers.map((a) => (
                           <option key={a.userId} value={a.userId}>{a.userName}</option>
@@ -487,14 +487,14 @@ export function ApprovalRulesPage() {
                       <input type="number" min="0" value={form.minAmount} onChange={(e) => setForm((f) => ({ ...f, minAmount: e.target.value }))}
                         placeholder="0"
                         className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm outline-none"
-                        onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
+                        onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
                     </div>
                     <div>
                       <label className="text-xs text-gray-500 mb-1 block">Max Amount</label>
                       <input type="number" min="0" value={form.maxAmount} onChange={(e) => setForm((f) => ({ ...f, maxAmount: e.target.value }))}
                         placeholder="No limit"
                         className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm outline-none"
-                        onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
+                        onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
                     </div>
                   </div>
                 </div>
@@ -509,9 +509,9 @@ export function ApprovalRulesPage() {
                       <button key={cat} type="button" onClick={() => toggleCategory(cat)}
                         className="px-2.5 py-1 rounded-full text-xs font-medium transition-all border"
                         style={{
-                          background: form.categories.includes(cat) ? "#d63384" : "#fdf2f8",
+                          background: form.categories.includes(cat) ? "#c8102e" : "#fef8f3",
                           color: form.categories.includes(cat) ? "white" : "#9c4070",
-                          borderColor: form.categories.includes(cat) ? "#d63384" : "#f9a8d4",
+                          borderColor: form.categories.includes(cat) ? "#c8102e" : "#ffa07a",
                         }}>
                         {cat}
                       </button>
@@ -520,11 +520,11 @@ export function ApprovalRulesPage() {
                 </div>
               </div>
 
-              <div className="flex gap-3 p-5 border-t flex-shrink-0" style={{ borderColor: "#fce7f3" }}>
+              <div className="flex gap-3 p-5 border-t flex-shrink-0" style={{ borderColor: "#ffd4b8" }}>
                 <button type="button" onClick={() => setShowModal(false)} className="flex-1 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-600">
                   Cancel
                 </button>
-                <button type="submit" className="flex-1 py-2.5 rounded-lg text-white text-sm font-semibold flex items-center justify-center gap-2" style={{ background: "#d63384" }}>
+                <button type="submit" className="flex-1 py-2.5 rounded-lg text-white text-sm font-semibold flex items-center justify-center gap-2" style={{ background: "#c8102e" }}>
                   <Check size={15} /> {editRule ? "Save Changes" : "Create Rule"}
                 </button>
               </div>
@@ -535,3 +535,4 @@ export function ApprovalRulesPage() {
     </div>
   );
 }
+

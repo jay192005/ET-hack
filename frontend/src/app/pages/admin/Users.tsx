@@ -126,7 +126,7 @@ export function UsersPage() {
   };
 
   const roleConfig = {
-    admin: { label: "Admin", icon: Shield, color: "#d63384", bg: "#fce4ec" },
+    admin: { label: "Admin", icon: Shield, color: "#c8102e", bg: "#fef3ed" },
     manager: { label: "Manager", icon: UserCheck, color: "#7c3aed", bg: "#ede9fe" },
     employee: { label: "Employee", icon: User, color: "#059669", bg: "#d1fae5" },
   };
@@ -147,7 +147,7 @@ export function UsersPage() {
         <button
           onClick={openCreate}
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-white text-sm font-semibold"
-          style={{ background: "#d63384" }}
+          style={{ background: "#c8102e" }}
         >
           <UserPlus size={15} /> Add User
         </button>
@@ -159,7 +159,7 @@ export function UsersPage() {
           const count = users.filter((u) => u.role === role).length;
           const { label, icon: Icon, color, bg } = roleConfig[role];
           return (
-            <div key={role} className="bg-white rounded-xl border p-4 flex items-center gap-3" style={{ borderColor: "#fce7f3" }}>
+            <div key={role} className="bg-white rounded-xl border p-4 flex items-center gap-3" style={{ borderColor: "#ffd4b8" }}>
               <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: bg }}>
                 <Icon size={18} style={{ color }} />
               </div>
@@ -173,7 +173,7 @@ export function UsersPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl border p-4 flex flex-col sm:flex-row gap-3" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border p-4 flex flex-col sm:flex-row gap-3" style={{ borderColor: "#ffd4b8" }}>
         <div className="relative flex-1">
           <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
@@ -182,7 +182,7 @@ export function UsersPage() {
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name, email, department..."
             className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm outline-none"
-            onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+            onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
             onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
           />
         </div>
@@ -193,7 +193,7 @@ export function UsersPage() {
               onClick={() => setRoleFilter(r)}
               className="px-3 py-2 rounded-lg text-xs font-semibold capitalize transition-all"
               style={{
-                background: roleFilter === r ? "#d63384" : "#fdf2f8",
+                background: roleFilter === r ? "#c8102e" : "#fef8f3",
                 color: roleFilter === r ? "white" : "#9c4070",
               }}
             >
@@ -204,7 +204,7 @@ export function UsersPage() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
         {filtered.length === 0 ? (
           <div className="p-12 text-center">
             <Users size={40} className="mx-auto mb-3 text-gray-200" />
@@ -214,7 +214,7 @@ export function UsersPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr style={{ background: "#fdf2f8" }}>
+                <tr style={{ background: "#fef8f3" }}>
                   {["User", "Role", "Department", "Manager", "Status", "Actions"].map((h) => (
                     <th key={h} className="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
                       {h}
@@ -227,7 +227,7 @@ export function UsersPage() {
                   const { label, color, bg } = roleConfig[user.role];
                   const manager = users.find((u) => u.id === user.managerId);
                   return (
-                    <tr key={user.id} className="border-t hover:bg-pink-50 transition-colors" style={{ borderColor: "#fce7f3" }}>
+                    <tr key={user.id} className="border-t hover:bg-orange-50 transition-colors" style={{ borderColor: "#ffd4b8" }}>
                       <td className="px-5 py-3">
                         <div className="flex items-center gap-3">
                           <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0" style={{ background: color }}>
@@ -256,7 +256,7 @@ export function UsersPage() {
                       </td>
                       <td className="px-5 py-3">
                         <div className="flex items-center gap-1">
-                          <button onClick={() => openEdit(user)} className="p-1.5 rounded hover:bg-pink-100 text-gray-400 hover:text-pink-600 transition-colors">
+                          <button onClick={() => openEdit(user)} className="p-1.5 rounded hover:bg-orange-100 text-gray-400 hover:text-red-600 transition-colors">
                             <Edit2 size={14} />
                           </button>
                           {user.id !== currentUser?.id && (
@@ -297,7 +297,7 @@ export function UsersPage() {
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div className="bg-white rounded-2xl w-full max-w-md shadow-xl overflow-y-auto max-h-[90vh]">
-            <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#fce7f3" }}>
+            <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: "#ffd4b8" }}>
               <h3 className="font-bold text-gray-900">{editUser ? "Edit User" : "Add New User"}</h3>
               <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600">
                 <X size={18} />
@@ -311,7 +311,7 @@ export function UsersPage() {
                   <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                   <input type="text" value={form.name} onChange={set("name")} placeholder="Full name"
                     className="w-full pl-9 pr-4 py-2.5 border rounded-lg text-sm outline-none" style={{ borderColor: errors.name ? "#dc2626" : "#e5e7eb" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = errors.name ? "#dc2626" : "#e5e7eb")} />
+                    onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = errors.name ? "#dc2626" : "#e5e7eb")} />
                 </div>
                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
@@ -322,7 +322,7 @@ export function UsersPage() {
                   <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                   <input type="email" value={form.email} onChange={set("email")} placeholder="user@company.com"
                     className="w-full pl-9 pr-4 py-2.5 border rounded-lg text-sm outline-none" style={{ borderColor: errors.email ? "#dc2626" : "#e5e7eb" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = errors.email ? "#dc2626" : "#e5e7eb")} />
+                    onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = errors.email ? "#dc2626" : "#e5e7eb")} />
                 </div>
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
@@ -335,7 +335,7 @@ export function UsersPage() {
                   <Lock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                   <input type={showPassword ? "text" : "password"} value={form.password} onChange={set("password")} placeholder={editUser ? "New password (optional)" : "Min. 6 characters"}
                     className="w-full pl-9 pr-10 py-2.5 border rounded-lg text-sm outline-none" style={{ borderColor: errors.password ? "#dc2626" : "#e5e7eb" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = errors.password ? "#dc2626" : "#e5e7eb")} />
+                    onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = errors.password ? "#dc2626" : "#e5e7eb")} />
                   <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
                     {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
                   </button>
@@ -348,7 +348,7 @@ export function UsersPage() {
                   <label className="block text-sm font-semibold text-gray-700 mb-1.5">Role *</label>
                   <select value={form.role} onChange={set("role")}
                     className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-                    onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+                    onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
                     <option value="employee">Employee</option>
                     <option value="manager">Manager</option>
                     <option value="admin">Admin</option>
@@ -361,7 +361,7 @@ export function UsersPage() {
                     <Briefcase size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                     <input type="text" value={form.department} onChange={set("department")} placeholder="e.g., Finance"
                       className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
                   </div>
                 </div>
               </div>
@@ -371,7 +371,7 @@ export function UsersPage() {
                   <label className="block text-sm font-semibold text-gray-700 mb-1.5">Assign Manager</label>
                   <select value={form.managerId} onChange={set("managerId")}
                     className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-                    onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+                    onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
                     <option value="">— No Manager —</option>
                     {managers.map((m) => (
                       <option key={m.id} value={m.id}>{m.name} ({m.role})</option>
@@ -384,7 +384,7 @@ export function UsersPage() {
                 <button type="button" onClick={() => setShowModal(false)} className="flex-1 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-600">
                   Cancel
                 </button>
-                <button type="submit" className="flex-1 py-2.5 rounded-lg text-white text-sm font-semibold flex items-center justify-center gap-2" style={{ background: "#d63384" }}>
+                <button type="submit" className="flex-1 py-2.5 rounded-lg text-white text-sm font-semibold flex items-center justify-center gap-2" style={{ background: "#c8102e" }}>
                   <Check size={15} /> {editUser ? "Save Changes" : "Create User"}
                 </button>
               </div>
@@ -395,3 +395,4 @@ export function UsersPage() {
     </div>
   );
 }
+

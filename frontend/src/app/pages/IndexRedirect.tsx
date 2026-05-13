@@ -19,11 +19,12 @@ export function IndexRedirect() {
   }, [currentUser, isLoading, navigate]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: "#fdf2f8" }}>
+    <div className="min-h-screen flex items-center justify-center" style={{ background: "#fef8f3" }}>
       <div className="flex flex-col items-center gap-3">
-        <div className="w-10 h-10 rounded-full border-4 border-pink-200 border-t-pink-600 animate-spin" />
-        <p className="text-pink-600 font-medium">Loading...</p>
+        <div className="w-10 h-10 rounded-full border-4 border-orange-200 border-t-red-600 animate-spin" />
+        <p className="text-red-600 font-medium">Loading...</p>
       </div>
     </div>
   );
 }
+

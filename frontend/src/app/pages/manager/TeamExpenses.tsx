@@ -51,7 +51,7 @@ export function TeamExpensesPage() {
           { label: "Approved", value: teamExpenses.filter(e=>e.status==="approved").length, subLabel: `${sym}${totalApproved.toFixed(0)}` },
           { label: "Rejected", value: teamExpenses.filter(e=>e.status==="rejected").length, subLabel: "declined" },
         ].map(({ label, value, subLabel }) => (
-          <div key={label} className="bg-white rounded-xl border p-4" style={{ borderColor: "#fce7f3" }}>
+          <div key={label} className="bg-white rounded-xl border p-4" style={{ borderColor: "#ffd4b8" }}>
             <p className="text-xs text-gray-500 mb-1">{label}</p>
             <p className="text-2xl font-bold text-gray-900">{value}</p>
             <p className="text-xs text-gray-400">{subLabel}</p>
@@ -60,17 +60,17 @@ export function TeamExpensesPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl border p-4 flex flex-col sm:flex-row gap-3" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border p-4 flex flex-col sm:flex-row gap-3" style={{ borderColor: "#ffd4b8" }}>
         <div className="relative flex-1">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
             placeholder="Search expenses or employees..."
             className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-            onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
+            onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
         </div>
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
           className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-          onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+          onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
           <option value="all">All Statuses</option>
           <option value="pending">Pending</option>
           <option value="approved">Approved</option>
@@ -78,7 +78,7 @@ export function TeamExpensesPage() {
         </select>
         <select value={memberFilter} onChange={(e) => setMemberFilter(e.target.value)}
           className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-          onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+          onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
           <option value="all">All Members</option>
           {teamMembers.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
         </select>
@@ -90,8 +90,8 @@ export function TeamExpensesPage() {
           {teamMembers.map((member) => {
             const memberExpenses = teamExpenses.filter((e) => e.employeeId === member.id);
             return (
-              <div key={member.id} className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border" style={{ borderColor: "#fce7f3" }}>
-                <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#d63384" }}>
+              <div key={member.id} className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border" style={{ borderColor: "#ffd4b8" }}>
+                <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#c8102e" }}>
                   {member.name.charAt(0)}
                 </div>
                 <div>
@@ -105,7 +105,7 @@ export function TeamExpensesPage() {
       )}
 
       {/* Expenses Table */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
         {filtered.length === 0 ? (
           <div className="p-12 text-center">
             <Users size={36} className="mx-auto mb-3 text-gray-200" />
@@ -115,7 +115,7 @@ export function TeamExpensesPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr style={{ background: "#fdf2f8" }}>
+                <tr style={{ background: "#fef8f3" }}>
                   {["Employee", "Expense", "Amount", "Category", "Date", "Status"].map((h) => (
                     <th key={h} className="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">{h}</th>
                   ))}
@@ -124,10 +124,10 @@ export function TeamExpensesPage() {
               <tbody>
                 {filtered.map((e) => (
                   <tr key={e.id} onClick={() => navigate(`/expenses/${e.id}`)}
-                    className="border-t cursor-pointer hover:bg-pink-50 transition-colors" style={{ borderColor: "#fce7f3" }}>
+                    className="border-t cursor-pointer hover:bg-orange-50 transition-colors" style={{ borderColor: "#ffd4b8" }}>
                     <td className="px-5 py-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#d63384" }}>
+                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#c8102e" }}>
                           {e.employeeName.charAt(0)}
                         </div>
                         <span className="text-sm font-medium text-gray-800">{e.employeeName}</span>
@@ -153,7 +153,7 @@ export function TeamExpensesPage() {
                       )}
                     </td>
                     <td className="px-5 py-3">
-                      <span className="text-xs px-2 py-1 rounded-full" style={{ background: "#fdf2f8", color: "#d63384" }}>{e.category}</span>
+                      <span className="text-xs px-2 py-1 rounded-full" style={{ background: "#fef8f3", color: "#c8102e" }}>{e.category}</span>
                     </td>
                     <td className="px-5 py-3 text-sm text-gray-500">{new Date(e.date).toLocaleDateString()}</td>
                     <td className="px-5 py-3"><StatusBadge status={e.status} /></td>
@@ -167,3 +167,4 @@ export function TeamExpensesPage() {
     </div>
   );
 }
+

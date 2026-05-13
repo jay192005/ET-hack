@@ -59,7 +59,7 @@ export function AdminExpensesPage() {
           { label: "Approved", amount: totals.approved, color: "#059669", bg: "#d1fae5", count: expenses.filter(e=>e.status==="approved").length },
           { label: "Rejected", amount: totals.rejected, color: "#dc2626", bg: "#fee2e2", count: expenses.filter(e=>e.status==="rejected").length },
         ].map(({ label, amount, color, bg, count }) => (
-          <div key={label} className="bg-white rounded-xl border p-4" style={{ borderColor: "#fce7f3" }}>
+          <div key={label} className="bg-white rounded-xl border p-4" style={{ borderColor: "#ffd4b8" }}>
             <p className="text-xs font-semibold text-gray-500 mb-1">{label}</p>
             <p className="text-lg font-bold text-gray-900">{sym}{amount.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
             <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: bg, color }}>{count} expense{count !== 1 ? "s" : ""}</span>
@@ -68,7 +68,7 @@ export function AdminExpensesPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl border p-4 space-y-3" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border p-4 space-y-3" style={{ borderColor: "#ffd4b8" }}>
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
             <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -76,12 +76,12 @@ export function AdminExpensesPage() {
               type="text" value={search} onChange={(e) => setSearch(e.target.value)}
               placeholder="Search expenses, employees..."
               className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-              onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
+              onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}
             />
           </div>
           <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
             className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-            onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+            onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
             <option value="all">All Statuses</option>
             <option value="pending">Pending</option>
             <option value="approved">Approved</option>
@@ -89,7 +89,7 @@ export function AdminExpensesPage() {
           </select>
           <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}
             className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none"
-            onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
+            onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")}>
             <option value="all">All Categories</option>
             {EXPENSE_CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
@@ -97,7 +97,7 @@ export function AdminExpensesPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
         {filtered.length === 0 ? (
           <div className="p-12 text-center">
             <Filter size={36} className="mx-auto mb-3 text-gray-200" />
@@ -107,7 +107,7 @@ export function AdminExpensesPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr style={{ background: "#fdf2f8" }}>
+                <tr style={{ background: "#fef8f3" }}>
                   {["Employee", "Expense", "Amount", "Category", "Date", "Status", "Actions"].map((h) => (
                     <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">{h}</th>
                   ))}
@@ -115,11 +115,11 @@ export function AdminExpensesPage() {
               </thead>
               <tbody>
                 {filtered.map((expense) => (
-                  <tr key={expense.id} className="border-t hover:bg-pink-50 transition-colors cursor-pointer" style={{ borderColor: "#fce7f3" }}
+                  <tr key={expense.id} className="border-t hover:bg-orange-50 transition-colors cursor-pointer" style={{ borderColor: "#ffd4b8" }}
                     onClick={() => navigate(`/expenses/${expense.id}`)}>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#d63384" }}>
+                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#c8102e" }}>
                           {expense.employeeName.charAt(0)}
                         </div>
                         <span className="text-sm font-medium text-gray-800">{expense.employeeName}</span>
@@ -136,7 +136,7 @@ export function AdminExpensesPage() {
                       )}
                     </td>
                     <td className="px-4 py-3">
-                      <span className="text-xs px-2 py-1 rounded-full" style={{ background: "#fdf2f8", color: "#d63384" }}>{expense.category}</span>
+                      <span className="text-xs px-2 py-1 rounded-full" style={{ background: "#fef8f3", color: "#c8102e" }}>{expense.category}</span>
                     </td>
                     <td className="px-4 py-3 text-sm text-gray-500 whitespace-nowrap">
                       {new Date(expense.date).toLocaleDateString()}
@@ -177,3 +177,4 @@ export function AdminExpensesPage() {
     </div>
   );
 }
+

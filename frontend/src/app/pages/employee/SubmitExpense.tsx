@@ -188,11 +188,11 @@ export function SubmitExpensePage() {
       </div>
 
       {/* OCR Section */}
-      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-        <div className="p-4 border-b flex items-center gap-2" style={{ borderColor: "#fce7f3", background: "#fdf2f8" }}>
-          <Scan size={16} style={{ color: "#d63384" }} />
+      <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+        <div className="p-4 border-b flex items-center gap-2" style={{ borderColor: "#ffd4b8", background: "#fef8f3" }}>
+          <Scan size={16} style={{ color: "#c8102e" }} />
           <h3 className="font-semibold text-gray-900 text-sm">Receipt Scanner (OCR)</h3>
-          <span className="ml-auto text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: "#d63384", color: "white" }}>
+          <span className="ml-auto text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: "#c8102e", color: "white" }}>
             AI Powered
           </span>
         </div>
@@ -201,7 +201,7 @@ export function SubmitExpensePage() {
           {!receiptPreview ? (
             <label
               className="flex flex-col items-center justify-center w-full h-36 border-2 border-dashed rounded-xl cursor-pointer transition-colors"
-              style={{ borderColor: "#f9a8d4" }}
+              style={{ borderColor: "#ffa07a" }}
               onDragOver={(e) => e.preventDefault()}
               onDrop={(e) => {
                 e.preventDefault();
@@ -217,8 +217,8 @@ export function SubmitExpensePage() {
                 onChange={(e) => { const f = e.target.files?.[0]; if (f) handleFileSelect(f); }}
               />
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "#fce4ec" }}>
-                  <Upload size={18} style={{ color: "#d63384" }} />
+                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "#fef3ed" }}>
+                  <Upload size={18} style={{ color: "#c8102e" }} />
                 </div>
                 <div className="text-center">
                   <p className="text-sm font-medium text-gray-700">Drop receipt file here</p>
@@ -229,7 +229,7 @@ export function SubmitExpensePage() {
           ) : (
             <div className="space-y-3">
               <div className="relative inline-block">
-                <img src={receiptPreview} alt="Receipt" className="max-h-40 rounded-lg border object-contain" style={{ borderColor: "#fce7f3" }} />
+                <img src={receiptPreview} alt="Receipt" className="max-h-40 rounded-lg border object-contain" style={{ borderColor: "#ffd4b8" }} />
                 <button onClick={clearReceipt} className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-red-500 shadow-sm">
                   <X size={12} />
                 </button>
@@ -241,12 +241,12 @@ export function SubmitExpensePage() {
                     type="button"
                     onClick={runOCR}
                     className="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-semibold"
-                    style={{ background: "#d63384" }}
+                    style={{ background: "#c8102e" }}
                   >
                     <Scan size={14} /> Scan with OCR
                   </button>
                 ) : (
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm" style={{ background: "#fce4ec", color: "#d63384" }}>
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm" style={{ background: "#fef3ed", color: "#c8102e" }}>
                     <Loader2 size={14} className="animate-spin" />
                     {ocrProgress ? `${ocrProgress.status} (${Math.round(ocrProgress.progress * 100)}%)` : "Processing..."}
                   </div>
@@ -271,8 +271,8 @@ export function SubmitExpensePage() {
 
       {/* Expense Form */}
       <form onSubmit={handleSubmit}>
-        <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#fce7f3" }}>
-          <div className="p-4 border-b" style={{ borderColor: "#fce7f3", background: "#fdf2f8" }}>
+        <div className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: "#ffd4b8" }}>
+          <div className="p-4 border-b" style={{ borderColor: "#ffd4b8", background: "#fef8f3" }}>
             <h3 className="font-semibold text-gray-900 text-sm">Expense Details</h3>
           </div>
 
@@ -284,7 +284,7 @@ export function SubmitExpensePage() {
                 placeholder="e.g., Team Lunch at Bistro, Flight to NYC..."
                 className="w-full px-4 py-3 border rounded-lg text-sm outline-none"
                 style={{ borderColor: errors.title ? "#dc2626" : "#e5e7eb" }}
-                onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                 onBlur={(e) => (e.target.style.borderColor = errors.title ? "#dc2626" : "#e5e7eb")} />
               {errors.title && <p className="text-red-500 text-xs mt-1">{errors.title}</p>}
             </div>
@@ -302,7 +302,7 @@ export function SubmitExpensePage() {
                     type="button"
                     onClick={() => setShowCurrencyDropdown(!showCurrencyDropdown)}
                     className="flex items-center gap-1.5 px-3 py-3 border rounded-lg text-sm font-semibold whitespace-nowrap"
-                    style={{ borderColor: "#e5e7eb", minWidth: "90px", color: "#d63384" }}
+                    style={{ borderColor: "#e5e7eb", minWidth: "90px", color: "#c8102e" }}
                   >
                     {form.currencySymbol} {form.currency}
                     <ChevronDown size={12} />
@@ -312,12 +312,12 @@ export function SubmitExpensePage() {
                       <div className="p-2">
                         <input type="text" value={currencySearch} onChange={(e) => setCurrencySearch(e.target.value)}
                           placeholder="Search currency..." className="w-full px-3 py-2 border border-gray-200 rounded text-xs outline-none"
-                          onFocus={(e) => (e.target.style.borderColor = "#d63384")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} autoFocus />
+                          onFocus={(e) => (e.target.style.borderColor = "#c8102e")} onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} autoFocus />
                       </div>
                       <div className="max-h-40 overflow-y-auto">
                         {filteredCurrencies.map((c) => (
                           <button key={c.code} type="button" onClick={() => selectCurrency(c)}
-                            className="w-full text-left px-4 py-2 hover:bg-pink-50 text-sm flex items-center justify-between">
+                            className="w-full text-left px-4 py-2 hover:bg-orange-50 text-sm flex items-center justify-between">
                             <span className="font-medium">{c.code}</span>
                             <span className="text-xs text-gray-400 truncate ml-2">{c.name}</span>
                           </button>
@@ -332,7 +332,7 @@ export function SubmitExpensePage() {
                     placeholder="0.00"
                     className="w-full pl-8 pr-4 py-3 border rounded-lg text-sm outline-none"
                     style={{ borderColor: errors.amount ? "#dc2626" : "#e5e7eb" }}
-                    onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                    onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                     onBlur={(e) => (e.target.style.borderColor = errors.amount ? "#dc2626" : "#e5e7eb")} />
                 </div>
               </div>
@@ -355,7 +355,7 @@ export function SubmitExpensePage() {
                 <select value={form.category} onChange={set("category")}
                   className="w-full px-4 py-3 border rounded-lg text-sm outline-none"
                   style={{ borderColor: errors.category ? "#dc2626" : "#e5e7eb" }}
-                  onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                  onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                   onBlur={(e) => (e.target.style.borderColor = errors.category ? "#dc2626" : "#e5e7eb")}>
                   <option value="">Select category...</option>
                   {EXPENSE_CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -371,7 +371,7 @@ export function SubmitExpensePage() {
                 <input type="date" value={form.date} onChange={set("date")} max={today}
                   className="w-full px-4 py-3 border rounded-lg text-sm outline-none"
                   style={{ borderColor: errors.date ? "#dc2626" : "#e5e7eb" }}
-                  onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                  onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                   onBlur={(e) => (e.target.style.borderColor = errors.date ? "#dc2626" : "#e5e7eb")} />
                 {errors.date && <p className="text-red-500 text-xs mt-1">{errors.date}</p>}
               </div>
@@ -388,13 +388,13 @@ export function SubmitExpensePage() {
                 rows={3}
                 className="w-full px-4 py-3 border rounded-lg text-sm outline-none resize-none"
                 style={{ borderColor: "#e5e7eb" }}
-                onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                 onBlur={(e) => (e.target.style.borderColor = "#e5e7eb")} />
             </div>
 
             {/* Info about approval */}
-            <div className="flex items-start gap-2 p-3 rounded-lg" style={{ background: "#fdf2f8" }}>
-              <AlertCircle size={14} style={{ color: "#d63384" }} className="flex-shrink-0 mt-0.5" />
+            <div className="flex items-start gap-2 p-3 rounded-lg" style={{ background: "#fef8f3" }}>
+              <AlertCircle size={14} style={{ color: "#c8102e" }} className="flex-shrink-0 mt-0.5" />
               <p className="text-xs text-gray-600">
                 Your expense will be automatically routed to the appropriate approvers based on configured rules.
                 The amount will be shown to approvers in <strong>{company?.currency}</strong> ({company?.currencySymbol}).
@@ -402,14 +402,14 @@ export function SubmitExpensePage() {
             </div>
           </div>
 
-          <div className="p-5 border-t flex gap-3" style={{ borderColor: "#fce7f3" }}>
+          <div className="p-5 border-t flex gap-3" style={{ borderColor: "#ffd4b8" }}>
             <button type="button" onClick={() => navigate(-1)}
               className="flex-1 py-3 rounded-lg border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50">
               Cancel
             </button>
             <button type="submit" disabled={isSubmitting}
               className="flex-1 py-3 rounded-lg text-white text-sm font-semibold flex items-center justify-center gap-2"
-              style={{ background: isSubmitting ? "#f9a8d4" : "#d63384" }}>
+              style={{ background: isSubmitting ? "#ffa07a" : "#c8102e" }}>
               {isSubmitting
                 ? <><Loader2 size={14} className="animate-spin" /> Submitting...</>
                 : <><CheckCircle size={14} /> Submit Expense</>}
