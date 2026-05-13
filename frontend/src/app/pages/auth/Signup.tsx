@@ -173,7 +173,7 @@ export function Signup() {
           </div>
         </div>
 
-        <div className="relative z-10 text-orange-300 text-xs">© 2026 ExpenseFlow</div>
+        <div className="relative z-10 text-orange-300 text-xs">© 2025-2026 ExpenseFlow</div>
       </div>
 
       {/* Right Panel */}
