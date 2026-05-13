@@ -104,7 +104,8 @@ export function Login() {
         </div>
 
         <div className="relative z-10 text-orange-300 text-xs">
-          © 2025-2026 ExpenseFlow. Created by Jay and Team. All rights reserved.
+          <div>© 2025-2026 ExpenseFlow.</div>
+          <div>Created by Jay and Team. All rights reserved.</div>
         </div>
       </div>
 
