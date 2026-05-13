@@ -122,7 +122,7 @@ export function Signup() {
       {/* Left Panel */}
       <div
         className="hidden lg:flex lg:w-2/5 flex-col justify-between p-12 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #2d0a20 0%, #6b1240 50%, #d63384 100%)" }}
+        style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 50%, #c8102e 100%)" }}
       >
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white transform translate-x-1/2 -translate-y-1/2" />
@@ -135,14 +135,14 @@ export function Signup() {
           </div>
           <div>
             <p className="text-white font-bold text-lg">ExpenseFlow</p>
-            <p className="text-pink-300 text-xs">Reimbursement Management</p>
+            <p className="text-orange-300 text-xs">Reimbursement Management</p>
           </div>
         </div>
 
         <div className="relative z-10 space-y-6">
           <div>
             <h2 className="text-3xl font-bold text-white mb-3">Get started in minutes</h2>
-            <p className="text-pink-200 leading-relaxed">
+            <p className="text-orange-200 leading-relaxed">
               Set up your company, define approval workflows, and start managing expenses efficiently.
             </p>
           </div>
@@ -159,21 +159,21 @@ export function Signup() {
                   className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"
                   style={{
                     background: n < step + 1 ? "rgba(255,255,255,0.3)" : n === step ? "white" : "rgba(255,255,255,0.1)",
-                    color: n === step ? "#d63384" : "white",
+                    color: n === step ? "#c8102e" : "white",
                   }}
                 >
                   {n < step ? <Check size={12} /> : n}
                 </div>
                 <div>
                   <p className="text-white text-sm font-medium">{title}</p>
-                  <p className="text-pink-300 text-xs">{desc}</p>
+                  <p className="text-orange-300 text-xs">{desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="relative z-10 text-pink-300 text-xs">© 2026 ExpenseFlow</div>
+        <div className="relative z-10 text-orange-300 text-xs">© 2026 ExpenseFlow</div>
       </div>
 
       {/* Right Panel */}
@@ -188,7 +188,7 @@ export function Signup() {
             <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-500"
-                style={{ width: `${(step / 2) * 100}%`, background: "#d63384" }}
+                style={{ width: `${(step / 2) * 100}%`, background: "#c8102e" }}
               />
             </div>
           </div>
@@ -212,7 +212,7 @@ export function Signup() {
                       placeholder="John Smith"
                       className={`${inputClass("name")} pl-9 pr-4`}
                       style={{ borderColor: errors.name ? "#dc2626" : "#e5e7eb" }}
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                       onBlur={(e) => (e.target.style.borderColor = errors.name ? "#dc2626" : "#e5e7eb")}
                     />
                   </div>
@@ -230,7 +230,7 @@ export function Signup() {
                       placeholder="john@company.com"
                       className={`${inputClass("email")} pl-9 pr-4`}
                       style={{ borderColor: errors.email ? "#dc2626" : "#e5e7eb" }}
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                       onBlur={(e) => (e.target.style.borderColor = errors.email ? "#dc2626" : "#e5e7eb")}
                     />
                   </div>
@@ -248,7 +248,7 @@ export function Signup() {
                       placeholder="Min. 6 characters"
                       className={`${inputClass("password")} pl-9 pr-10`}
                       style={{ borderColor: errors.password ? "#dc2626" : "#e5e7eb" }}
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                       onBlur={(e) => (e.target.style.borderColor = errors.password ? "#dc2626" : "#e5e7eb")}
                     />
                     <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
@@ -269,7 +269,7 @@ export function Signup() {
                       placeholder="Repeat password"
                       className={`${inputClass("confirmPassword")} pl-9 pr-10`}
                       style={{ borderColor: errors.confirmPassword ? "#dc2626" : "#e5e7eb" }}
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                       onBlur={(e) => (e.target.style.borderColor = errors.confirmPassword ? "#dc2626" : "#e5e7eb")}
                     />
                     <button type="button" onClick={() => setShowConfirm(!showConfirm)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
@@ -283,7 +283,7 @@ export function Signup() {
                   type="button"
                   onClick={handleNext}
                   className="w-full py-3 rounded-lg text-white font-semibold text-sm flex items-center justify-center gap-2 mt-2"
-                  style={{ background: "#d63384" }}
+                  style={{ background: "#c8102e" }}
                 >
                   Continue <ChevronRight size={16} />
                 </button>
@@ -308,7 +308,7 @@ export function Signup() {
                       placeholder="Acme Corporation"
                       className={`${inputClass("companyName")} pl-9 pr-4`}
                       style={{ borderColor: errors.companyName ? "#dc2626" : "#e5e7eb" }}
-                      onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                      onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                       onBlur={(e) => (e.target.style.borderColor = errors.companyName ? "#dc2626" : "#e5e7eb")}
                     />
                   </div>
@@ -335,7 +335,7 @@ export function Signup() {
                             key={c.code}
                             type="button"
                             onClick={() => handleCountrySelect(c)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-pink-50 flex items-center justify-between text-sm"
+                            className="w-full text-left px-4 py-2.5 hover:bg-orange-50 flex items-center justify-between text-sm"
                           >
                             <span>{c.flag} {c.name}</span>
                             <span className="text-gray-400 text-xs">{c.currency}</span>
@@ -351,17 +351,17 @@ export function Signup() {
                 </div>
 
                 {form.currency && (
-                  <div className="p-4 rounded-lg border flex items-center gap-3" style={{ background: "#fdf2f8", borderColor: "#f9a8d4" }}>
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-xl" style={{ background: "#fce4ec" }}>
+                  <div className="p-4 rounded-lg border flex items-center gap-3" style={{ background: "#fef8f3", borderColor: "#f5d5c8" }}>
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-xl" style={{ background: "#fef3ed" }}>
                       {countries.find((c) => c.code === form.countryCode)?.flag}
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-gray-800">{form.currencyName}</p>
                       <p className="text-xs text-gray-500">
-                        Company currency: <span className="font-mono font-bold" style={{ color: "#d63384" }}>{form.currencySymbol} {form.currency}</span>
+                        Company currency: <span className="font-mono font-bold" style={{ color: "#c8102e" }}>{form.currencySymbol} {form.currency}</span>
                       </p>
                     </div>
-                    <Check size={18} className="ml-auto" style={{ color: "#d63384" }} />
+                    <Check size={18} className="ml-auto" style={{ color: "#c8102e" }} />
                   </div>
                 )}
 
@@ -377,7 +377,7 @@ export function Signup() {
                     type="submit"
                     disabled={isLoading}
                     className="flex-1 py-3 rounded-lg text-white font-semibold text-sm flex items-center justify-center gap-2"
-                    style={{ background: isLoading ? "#f9a8d4" : "#d63384" }}
+                    style={{ background: isLoading ? "#ffa07a" : "#c8102e" }}
                   >
                     {isLoading ? (
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -392,7 +392,7 @@ export function Signup() {
 
           <p className="text-center text-sm text-gray-500 mt-6">
             Already have an account?{" "}
-            <Link to="/login" className="font-semibold" style={{ color: "#d63384" }}>Sign in</Link>
+            <Link to="/login" className="font-semibold" style={{ color: "#c8102e" }}>Sign in</Link>
           </p>
         </div>
       </div>

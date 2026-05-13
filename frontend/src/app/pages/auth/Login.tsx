@@ -44,7 +44,7 @@ export function Login() {
       {/* Left Panel */}
       <div
         className="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #2d0a20 0%, #6b1240 50%, #d63384 100%)" }}
+        style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 50%, #c8102e 100%)" }}
       >
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -71,7 +71,7 @@ export function Login() {
             </div>
             <span className="text-white font-bold text-xl tracking-wide">ExpenseFlow</span>
           </div>
-          <p className="text-pink-200 text-sm">Reimbursement Management System</p>
+          <p className="text-orange-200 text-sm">Reimbursement Management System</p>
         </div>
 
         <div className="relative z-10 space-y-8">
@@ -79,7 +79,7 @@ export function Login() {
             <h2 className="text-4xl font-bold text-white leading-tight mb-4">
               Streamline Your<br />Expense Management
             </h2>
-            <p className="text-pink-200 text-lg leading-relaxed">
+            <p className="text-orange-200 text-lg leading-relaxed">
               Multi-level approvals, OCR receipt scanning, and real-time expense tracking — all in one place.
             </p>
           </div>
@@ -92,18 +92,18 @@ export function Login() {
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <Icon size={18} className="text-pink-200" />
+                  <Icon size={18} className="text-orange-200" />
                 </div>
                 <div>
                   <p className="text-white font-medium text-sm">{title}</p>
-                  <p className="text-pink-300 text-xs">{desc}</p>
+                  <p className="text-orange-300 text-xs">{desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="relative z-10 text-pink-300 text-xs">
+        <div className="relative z-10 text-orange-300 text-xs">
           © 2024-2025 ExpenseFlow. Created by Jay and Team. All rights reserved.
         </div>
       </div>
@@ -113,7 +113,7 @@ export function Login() {
         <div className="w-full max-w-md">
           {/* Mobile logo */}
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "#d63384" }}>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "#c8102e" }}>
               <TrendingUp size={16} className="text-white" />
             </div>
             <span className="font-bold text-gray-800">ExpenseFlow</span>
@@ -139,7 +139,7 @@ export function Login() {
                     borderColor: errors.email ? "#dc2626" : "#e5e7eb",
                     boxShadow: "none",
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                  onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                   onBlur={(e) => (e.target.style.borderColor = errors.email ? "#dc2626" : "#e5e7eb")}
                 />
               </div>
@@ -149,7 +149,7 @@ export function Login() {
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label className="text-sm font-semibold text-gray-700">Password</label>
-                <Link to="/forgot-password" className="text-xs font-medium" style={{ color: "#d63384" }}>
+                <Link to="/forgot-password" className="text-xs font-medium" style={{ color: "#c8102e" }}>
                   Forgot password?
                 </Link>
               </div>
@@ -162,7 +162,7 @@ export function Login() {
                   placeholder="••••••••"
                   className="w-full pl-10 pr-10 py-3 border rounded-lg text-sm outline-none transition-all"
                   style={{ borderColor: errors.password ? "#dc2626" : "#e5e7eb" }}
-                  onFocus={(e) => (e.target.style.borderColor = "#d63384")}
+                  onFocus={(e) => (e.target.style.borderColor = "#c8102e")}
                   onBlur={(e) => (e.target.style.borderColor = errors.password ? "#dc2626" : "#e5e7eb")}
                 />
                 <button
@@ -180,7 +180,7 @@ export function Login() {
               type="submit"
               disabled={isLoading}
               className="w-full py-3 rounded-lg text-white font-semibold text-sm transition-all flex items-center justify-center gap-2"
-              style={{ background: isLoading ? "#f9a8d4" : "#d63384" }}
+              style={{ background: isLoading ? "#ffa07a" : "#c8102e" }}
             >
               {isLoading ? (
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -190,8 +190,8 @@ export function Login() {
             </button>
           </form>
 
-          <div className="mt-8 p-4 rounded-lg border border-pink-100 bg-pink-50">
-            <p className="text-xs font-semibold text-pink-700 mb-2 uppercase tracking-wide">Demo Credentials</p>
+          <div className="mt-8 p-4 rounded-lg border border-orange-100 bg-orange-50">
+            <p className="text-xs font-semibold text-red-700 mb-2 uppercase tracking-wide">Demo Credentials</p>
             <div className="space-y-1">
               <p className="text-xs text-gray-600">Create your account to get started — signup auto-creates an Admin.</p>
             </div>
@@ -199,7 +199,7 @@ export function Login() {
 
           <p className="text-center text-sm text-gray-500 mt-6">
             Don't have an account?{" "}
-            <Link to="/signup" className="font-semibold" style={{ color: "#d63384" }}>
+            <Link to="/signup" className="font-semibold" style={{ color: "#c8102e" }}>
               Create company account
             </Link>
           </p>
